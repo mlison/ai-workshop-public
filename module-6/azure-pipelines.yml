@@ -1,0 +1,57 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pr:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  - group: ai-secrets
+
+jobs:
+  - job: BuildTestTriage
+    displayName: Build, test, and triage on failure
+    steps:
+      - checkout: self
+        fetchDepth: 0
+        persistCredentials: true
+
+      - task: NodeTool@0
+        inputs:
+          versionSpec: '20.x'
+        displayName: Set up Node 20
+
+      - script: npm ci
+        displayName: Install dependencies
+
+      - script: |
+          set -o pipefail
+          npm run build 2>&1 | tee build.log
+        displayName: Build (tsc + vite)
+
+      - script: |
+          set -o pipefail
+          npm test 2>&1 | tee test.log
+        displayName: Test (vitest)
+
+      - script: |
+          set -euo pipefail
+          cat build.log test.log > pipeline.log 2>/dev/null || true
+          bash scripts/triage.sh
+        displayName: AI triage (on failure)
+        condition: failed()
+        env:
+          ANTHROPIC_API_KEY: $(ANTHROPIC_API_KEY)
+          SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+          AZDO_ORG_URL: $(System.CollectionUri)
+          AZDO_PROJECT: $(System.TeamProject)
+          AZDO_REPO_ID: $(Build.Repository.ID)
+          PR_ID: $(System.PullRequest.PullRequestId)
+          TARGET_BRANCH: $(System.PullRequest.TargetBranch)
+          LOG_PATH: pipeline.log

@@ -1,0 +1,67 @@
+# Release-notes pipeline variant.
+# Trigger: annotated tag push (v*).
+# Output: structured release notes echoed in the pipeline log.
+# Workshop note: replace azure-pipelines.yml with this file on a
+# `feature/release-notes` branch to demo the alternative pattern.
+
+trigger:
+  tags:
+    include:
+      - 'v*'
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  - group: ai-secrets
+
+jobs:
+  - job: GenerateReleaseNotes
+    displayName: Generate release notes on tag push
+    steps:
+      - checkout: self
+        fetchDepth: 0
+
+      - script: |
+          set -euo pipefail
+
+          TAG=$(git describe --tags --abbrev=0)
+          PREV_TAG=$(git describe --tags --abbrev=0 "${TAG}^" 2>/dev/null || git rev-list --max-parents=0 HEAD)
+
+          echo "Generating notes for $PREV_TAG -> $TAG"
+
+          COMMITS=$(git log "${PREV_TAG}..${TAG}" --pretty=format:'- %s')
+
+          SYSTEM_PROMPT=$(cat demo/release-notes.prompt.txt)
+
+          REQUEST=$(jq -n \
+            --arg system "$SYSTEM_PROMPT" \
+            --arg user "Commits from $PREV_TAG to $TAG:\n\n$COMMITS" \
+            '{
+              model: "claude-haiku-4-5",
+              max_tokens: 2048,
+              system: $system,
+              messages: [{role: "user", content: $user}]
+            }')
+
+          RESPONSE=$(curl -sS --fail-with-body https://api.anthropic.com/v1/messages \
+            -H "x-api-key: $ANTHROPIC_API_KEY" \
+            -H "anthropic-version: 2023-06-01" \
+            -H "content-type: application/json" \
+            -d "$REQUEST")
+
+          NOTES=$(echo "$RESPONSE" | jq -r '.content[0].text')
+          INPUT_TOKENS=$(echo "$RESPONSE" | jq -r '.usage.input_tokens')
+          OUTPUT_TOKENS=$(echo "$RESPONSE" | jq -r '.usage.output_tokens')
+
+          echo "Tokens: $INPUT_TOKENS input, $OUTPUT_TOKENS output"
+          echo ""
+          echo "=== Release notes for $TAG ==="
+          echo "$NOTES"
+          echo "==="
+
+          # In production: post to a wiki page via REST API.
+          # Workshop demo: just echo the output above.
+        displayName: Summarize commits between tags
+        env:
+          ANTHROPIC_API_KEY: $(ANTHROPIC_API_KEY)
