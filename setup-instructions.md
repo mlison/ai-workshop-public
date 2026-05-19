@@ -52,11 +52,9 @@ If you want a command-line equivalent, the `gh copilot` extension works for simp
 ## Clone the workshop repo
 
 ```sh
-git clone <workshop-repo-url> ai-workshop
+git clone https://github.com/mlison/ai-workshop-public.git ai-workshop
 cd ai-workshop
 ```
-
-The repo URL is in the email separately.
 
 ## Pre-flight check
 

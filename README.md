@@ -25,7 +25,3 @@ Bring your laptop with the AI tool authenticated and this repo cloned. We'll wor
 ## After
 
 Keep the repo around. The samples are reference material — copy patterns into your own projects.
-
-## Questions
-
-Email Michal at michal.lison@outlook.com.
