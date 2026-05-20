@@ -20,7 +20,7 @@ This is the **golden rule** in practice. When reality diverges from the plan, fi
 
 ## Suggested approach
 
-- Open `plan.md` and `proposed/src/tools/list-routes.ts` in Claude Code.
+- Read through `plan.md` and `proposed/src/tools/list-routes.ts`.
 - Ask Claude something like: "Compare the implementation of list_routes in @proposed/src/tools/list-routes.ts against the plan in @plan.md. Identify any divergence between what the plan asks for and what the code does. Don't fix anything -- just enumerate."
 - Iterate. Push back. Don't accept Claude's first answer if it skipped something.
 - For each divergence Claude finds, decide the action.

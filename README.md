@@ -25,3 +25,9 @@ Bring your laptop with the AI tool authenticated and this repo cloned. We'll wor
 ## After
 
 Keep the repo around. The samples are reference material — copy patterns into your own projects.
+
+## Recommended reading
+
+- [Martin Fowler — Structured Prompt-Driven Development](https://martinfowler.com/articles/structured-prompt-driven/). The source of much of Module 5's vocabulary (plan-first, golden rule, bidirectional sync). Worth reading even if you only attended the workshop in passing — it generalises beyond what we covered.
+- [Anthropic — Claude Code skills](https://docs.claude.com/en/docs/claude-code/skills). Reference for the skill format we used in Module 4.
+- [Model Context Protocol](https://modelcontextprotocol.io/). Spec and SDKs for the MCP server pattern from Module 4.
