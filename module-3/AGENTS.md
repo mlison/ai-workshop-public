@@ -68,32 +68,32 @@ DispatchKit is an internal operations platform. Optimize for:
 
 **Never start implementation before approval.** Autopilot is failure mode.
 
-Use the planning process when the request requires more than ~5 tool calls or file changes, or when the approach is unclear.
+Use the spec-first process when the request requires more than ~5 tool calls or file changes, or when the approach is unclear.
 
-### 3.1 Plan Phase
+### 3.1 Spec Phase
 
-- Always write the plan: `[project_root]/plans/[yyyy-mm-dd_hhmm-short_description].md`. Single source of truth.
+- Always write the spec: `[project_root]/specs/[yyyy-mm-dd_hhmm-short_description].md`. Single source of truth.
 - Define measurable, observable acceptance criteria. Include expected outputs, validation approach, and thresholds.
 - Include intent, goal, constraints, situational context, and a matching test strategy (levels, tools, pass criteria).
 - No temporal references ("current best practices", "latest version"). Pin to exact requirements.
-- Critical assumption -> test with a quick experiment before finalizing. Document the result in the plan.
+- Critical assumption -> test with a quick experiment before finalizing. Document the result in the spec.
 - Interface change -> propose 3-5 alternatives in cooperation with the human; iterate before locking.
-- The plan must be self-contained. Implementation may be delegated to an agent that has only the plan as context.
+- The spec must be self-contained. Implementation may be delegated to an agent that has only the spec as context.
 
-End of Plan Phase:
+End of Spec Phase:
 
 - Self-review with a skeptic's lens; fix omissions.
-- Print: "Critically review the plan `<path>` for correctness, completeness, feasibility, testability, and scope control. Find what's missing."
-- Append a `## Planning Reflections` section to the plan.
+- Print: "Critically review the spec `<path>` for correctness, completeness, feasibility, testability, and scope control. Find what's missing."
+- Append a `## Spec Reflections` section to the spec.
 - Ask the human to approve before moving to Implementation.
 
 ### 3.2 Implementation Phase
 
 - **Always create a git worktree** for each task. Do not work directly in the main checkout. Worktrees live under `[project_root]/.worktrees/<short_description>/`.
 - Copy any `.env*` files from main into the worktree. Run `yarn install` in the worktree root.
-- Implement only what was explicitly requested. New idea -> new plan. Bug or omission -> note in this plan, continue.
-- Plan task status markers: `[/]` in progress, `[x]` done, `[+]` discovered and done, `[-]` cancelled (state reason), `[>]` deferred (state reason).
-- Document surprises and decisions in the plan. The plan is a living document during implementation.
+- Implement only what was explicitly requested. New idea -> new spec. Bug or omission -> note in this spec, continue.
+- Spec task status markers: `[/]` in progress, `[x]` done, `[+]` discovered and done, `[-]` cancelled (state reason), `[>]` deferred (state reason).
+- Document surprises and decisions in the spec. The spec is a living document during implementation.
 - For every completed todo, commit. Atomic commits, one logical change per commit. Short messages, descriptive one-liners.
 - Never commit unrelated changes.
 - Stop after 3 unproductive rounds on a problem. Alert the human.
@@ -101,7 +101,7 @@ End of Plan Phase:
 ### 3.3 Merge & PR Phase
 
 - After implementation, run `yarn run test`, `yarn run typecheck`, `yarn run lint`. Verify nothing broke.
-- Append a `## Reflection` section to the plan: what went well, what changed, lessons learned.
+- Append a `## Reflection` section to the spec: what went well, what changed, lessons learned.
 - Pull main with rebase: `git pull --rebase origin main`. Re-test after rebasing.
 - Open PR via `gh pr create`. Descriptive title; body documents what changed and why.
 - Request review: `gh pr edit <number> --add-reviewer <reviewer>`.
@@ -221,9 +221,9 @@ If validation fails because of a change in scope, iterate immediately. If it fai
 
 ## 10. References
 
-- Skills: `.skills/` -- task-scoped guidance (e.g., `bugfix`, `new-component`, `code-review`, `planning`).
-- Prompt templates: `.prompts/` -- reusable canvases (REASONS Canvas, plan template, PR description template).
+- Skills: `.skills/` -- task-scoped guidance (e.g., `bugfix`, `new-component`, `code-review`, `spec-writing`).
+- Prompt templates: `.prompts/` -- reusable canvases (REASONS Canvas, spec template, PR description template).
 - Domain knowledge: `doc/domain/`.
 - Architecture and command patterns: `doc/architecture/`.
 - Runbooks: `doc/runbooks/`.
-- Plans: `plans/` (single source of truth for active and historical plans).
+- Specs: `specs/` (single source of truth for active and historical specs).

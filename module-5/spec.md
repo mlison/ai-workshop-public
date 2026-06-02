@@ -1,6 +1,6 @@
-# Plan: add list_routes tool to DispatchKit Core MCP
+# Spec: add list_routes tool to DispatchKit Core MCP
 
-**Path:** `plans/2026-04-22_1430-list-routes-tool.md`
+**Path:** `specs/2026-04-22_1430-list-routes-tool.md`
 **Status:** approved
 **Author:** dispatch-platform team
 

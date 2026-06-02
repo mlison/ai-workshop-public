@@ -1,6 +1,6 @@
-# Plan: enable Vitest snapshot review workflow
+# Spec: enable Vitest snapshot review workflow
 
-**Path:** `plans/2026-04-15_1100-vitest-snapshot-workflow.md`
+**Path:** `specs/2026-04-15_1100-vitest-snapshot-workflow.md`
 **Status:** merged
 **Author:** dispatch-web team
 
@@ -28,7 +28,7 @@ Snapshot test changes are visible in PRs and require a reviewer to mark them as 
 
 ## Situational context
 
-The snapshot-test convention exists in AGENTS.md but enforcement is human-discipline only. This plan adds tooling alignment. The root cause we're addressing: reviewers approve PRs without scrolling through `.snap` diffs.
+The snapshot-test convention exists in AGENTS.md but enforcement is human-discipline only. This spec adds tooling alignment. The root cause we're addressing: reviewers approve PRs without scrolling through `.snap` diffs.
 
 ## Test strategy
 
@@ -38,8 +38,8 @@ The snapshot-test convention exists in AGENTS.md but enforcement is human-discip
 
 ## Out of scope
 
-- Automated snapshot review (AI or otherwise) — separate plan if pursued.
-- Migration off snapshot tests — debated separately; not what this plan is about.
+- Automated snapshot review (AI or otherwise) — separate spec if pursued.
+- Migration off snapshot tests — debated separately; not what this spec is about.
 
 ## Reflection
 
