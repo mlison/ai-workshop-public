@@ -6,7 +6,7 @@ You're a reviewer on the DispatchKit Core team. A teammate has opened a PR that 
 
 - `spec.md` -- the spec you agreed before implementation. Treat as approved.
 - `pr-description.md` -- the PR description as written by the implementer.
-- `proposed/` -- the files in the PR. Treat this as the diff against `modules/module-4/sample/mcp-dispatchkit-core/`. New file: `proposed/src/tools/list-routes.ts`. Modified files: `proposed/src/data/routes.ts`, `proposed/src/index.ts`.
+- `typescript/proposed/` -- the files in the PR. Treat this as the diff against `module-4/typescript/mcp-dispatchkit-core/`. New file: `typescript/proposed/src/tools/list-routes.ts`. Modified files: `typescript/proposed/src/data/routes.ts`, `typescript/proposed/src/index.ts`. (Other language variants land under sibling folders, e.g. `csharp/proposed/`.)
 
 ## The exercise
 
@@ -20,8 +20,8 @@ This is the **golden rule** in practice. When reality diverges from the spec, fi
 
 ## Suggested approach
 
-- Read through `spec.md` and `proposed/src/tools/list-routes.ts`.
-- Ask Claude something like: "Compare the implementation of list_routes in @proposed/src/tools/list-routes.ts against the spec in @spec.md. Identify any divergence between what the spec asks for and what the code does. Don't fix anything -- just enumerate."
+- Read through `spec.md` and `typescript/proposed/src/tools/list-routes.ts`.
+- Ask Claude something like: "Compare the implementation of list_routes in @typescript/proposed/src/tools/list-routes.ts against the spec in @spec.md. Identify any divergence between what the spec asks for and what the code does. Don't fix anything -- just enumerate."
 - Iterate. Push back. Don't accept Claude's first answer if it skipped something.
 - For each divergence Claude finds, decide the action.
 
