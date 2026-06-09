@@ -1,0 +1,15 @@
+[project]
+name = "dispatchkit-core-mcp"
+version = "0.1.0"
+description = "DispatchKit Core MCP server. Sample for AI workshop Module 4."
+requires-python = ">=3.10"
+dependencies = [
+    "mcp[cli]>=1.0.0",
+]
+
+[project.scripts]
+dispatchkit-core-mcp = "src.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

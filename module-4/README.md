@@ -5,13 +5,25 @@ Pick the language folder matching your cohort's stack:
 ```
 module-4/
 ├── typescript/
-│   └── mcp-dispatchkit-core/     ← MCP server you mob-build during Module 4
+│   └── mcp-dispatchkit-core/     ← Node + @modelcontextprotocol/sdk
+├── csharp/
+│   └── McpDispatchKitCore/       ← .NET 8 + ModelContextProtocol NuGet
+├── python/
+│   └── mcp-dispatchkit-core/     ← Python 3.10+ + mcp (FastMCP)
 ├── skill-template/                ← Language-agnostic SKILL.md template
 └── README.md                      ← This file
 ```
 
-All language variants follow the same tool convention (`<name>InputShape`, `<name>Description`, `<name>Handler`, plus one registration line in `index.ts`) and ship with the same two working tools (`list_vehicles`, `get_vehicle_status`) plus the same `assign_route` extension target.
+All three runnable variants follow identical conventions: same two working tools (`list_vehicles`, `get_vehicle_status`), same `assign_route` extension target left unimplemented, same planted issues in `get_vehicle_status` (vague description, silent failure on not-found).
 
-`skill-template/` is a markdown contract and is the same across languages.
+`skill-template/` is a markdown contract — the same in every language.
 
-Python and C# variants will land as `python/` and `csharp/` siblings as we port them.
+## Tool convention by language
+
+| Language | Tool shape |
+|---|---|
+| **TypeScript** | Per tool: three exports — `<name>InputShape` (Zod), `<name>Description`, `<name>Handler`. One `server.tool(...)` line in `src/index.ts`. |
+| **C#** | Class with `[McpServerToolType]`, method with `[McpServerTool(Name = "...")]` + `[Description]`. Auto-discovered via `WithToolsFromAssembly()` in `Program.cs`. |
+| **Python** | Plain typed function with a docstring. Decorated via `mcp.tool()` in `src/server.py`. FastMCP derives the input schema from the type hints + docstring. |
+
+The MCP protocol is the same in all three; what changes is how each language's idiom expresses the same tool contract.

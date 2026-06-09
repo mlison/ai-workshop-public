@@ -14,8 +14,8 @@ If you got the email but haven't done these yet, do them now. The pre-flight at 
 | Folder | What it is | When we use it |
 |---|---|---|
 | **`module-3/`** | Team-level context engineering. A sample project with `AGENTS.md`, `.prompts/`, `.skills/`, `specs/`, `doc/`. | We dissect this together in Module 3. The pre-flight check reads `module-3/AGENTS.md`. |
-| **`module-4/`** | Advanced workflows. `typescript/mcp-dispatchkit-core/` is the MCP server we mob-build (pick your language folder — Python / C# siblings land alongside as we port them). `skill-template/` is the language-agnostic solo skill-writing exercise. | Module 4, hands-on. |
-| **`module-5/`** | PR-review exercise. `spec.md`, `pr-description.md`, and `typescript/proposed/` — find where the proposed change diverges from the spec. Other language variants land under sibling folders (e.g. `csharp/proposed/`) as we port them. | Module 5, hands-on. See `module-5/README.md` for the exercise framing. |
+| **`module-4/`** | Giving the agent your team's tools (MCP-led). Pick the language folder for your stack: `typescript/`, `csharp/`, or `python/` — the MCP server you mob-build lives there. `skill-template/` is the language-agnostic solo skill-writing exercise. | Module 4, hands-on. |
+| **`module-5/`** | PR-review exercise. `spec.md` and `pr-description.md` are language-agnostic; `csharp/proposed/`, `python/proposed/`, and `typescript/proposed/` hold the code under review. Same four planted divergences from the spec in every variant. | Module 5, hands-on. See `module-5/README.md` for the exercise framing. |
 | **`module-6/`** | Read-only reference: the Azure DevOps pipeline + AI triage script from the live demo. | Module 6 is demo-only — you watch, not run. Files are here so you can poke at them after. |
 
 ## During the workshop
