@@ -6,11 +6,9 @@ You're a reviewer on the DispatchKit Core team. A teammate has opened a PR that 
 
 - `spec.md` -- the spec you agreed before implementation. Treat as approved. **Language-agnostic.**
 - `pr-description.md` -- the PR description as written by the implementer. **Language-agnostic.**
-- `csharp/proposed/` -- the C# variant of the PR (primary delivery target).
-- `python/proposed/` -- the Python variant of the PR.
-- `typescript/proposed/` -- the TypeScript variant. *Opt-in for participants who prefer it.*
+- `csharp/proposed/`, `python/proposed/`, `typescript/proposed/` -- three language variants of the same PR.
 
-Each `<language>/proposed/` directory mirrors the same logical diff against `module-4/<language>/mcp-dispatchkit-core/`: one new tool file, a modified `routes` data file (adds the `status` field), and a modified server-bootstrap file. **All variants encode the same four planted divergences from the spec** — the discipline lesson is language-independent.
+Each `<language>/proposed/` directory mirrors the same logical diff against `module-4/<language>/mcp-dispatchkit-core/`: one new tool file, a modified `routes` data file (adds the `status` field), and a modified server-bootstrap file. **All variants encode the same four planted divergences from the spec** — the discipline lesson is language-independent. Your facilitator names the primary language for the cohort; you can pick any variant for the exercise.
 
 ## The exercise
 

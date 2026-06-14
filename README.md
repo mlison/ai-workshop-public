@@ -1,6 +1,6 @@
 # AI workshop materials
 
-For the AI workshop on 2026-05-20. Clone this repo before the workshop and have it ready on your laptop.
+Workshop reference materials. Clone this repo before your cohort's session and have it ready on your laptop.
 
 ## Before the workshop
 
