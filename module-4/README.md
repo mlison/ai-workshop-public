@@ -7,7 +7,7 @@ module-4/
 ├── typescript/
 │   └── mcp-dispatchkit-core/     ← Node + @modelcontextprotocol/sdk
 ├── csharp/
-│   └── McpDispatchKitCore/       ← .NET 8 + ModelContextProtocol NuGet
+│   └── McpDispatchKitCore/       ← .NET 10 + ModelContextProtocol NuGet
 ├── python/
 │   └── mcp-dispatchkit-core/     ← Python 3.10+ + mcp (FastMCP)
 ├── skill-template/                ← Language-agnostic SKILL.md template

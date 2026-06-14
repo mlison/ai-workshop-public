@@ -6,7 +6,7 @@ In-memory state. No real backend.
 
 ## Running
 
-Requires .NET 8 SDK or later.
+Requires .NET 10 SDK (or .NET 8 if you bump the `<TargetFramework>` in `McpDispatchKitCore.csproj` and the `Microsoft.Extensions.Hosting` package version to match).
 
 ```sh
 dotnet restore
