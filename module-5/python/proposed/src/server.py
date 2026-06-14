@@ -5,6 +5,8 @@ the existing tools (`list_vehicles`, `get_vehicle_status`) plus the new
 `list_routes` tool added by this PR.
 """
 
+import sys
+
 from mcp.server.fastmcp import FastMCP
 
 from .tools.list_routes import list_routes
@@ -19,6 +21,13 @@ mcp.tool()(list_routes)
 
 
 def main() -> None:
+    # MCP servers use stdout for the protocol; log to stderr instead.
+    print(
+        "dispatchkit-core MCP server listening on stdio. "
+        "Send EOF (Ctrl-D) or SIGINT (Ctrl-C) to stop.",
+        file=sys.stderr,
+        flush=True,
+    )
     mcp.run()
 
 
