@@ -19,7 +19,6 @@ npm test          # vitest
 - `azure-pipelines.yml` — main pipeline. Build + test + triage-on-failure.
 - `scripts/triage.sh` — Bash script that reads logs + diff, calls Anthropic, posts a PR comment via the ADO REST API.
 - `prompts/triage.system.txt` — system prompt for the triage call.
-- `demo/` — workshop-day notes: pre-staged broken commits and the release-notes pattern variant.
 
 ## ADO setup
 
@@ -51,11 +50,11 @@ The triage script posts a PR comment via the ADO REST API using `$(System.Access
 
 ## Running the demo
 
-See `demo/broken-commits.md` for three pre-staged failure modes. The simplest (and recommended for the main demo) is the failing-test option.
+The workshop demo introduces a broken commit and lets the pipeline triage it live. The driver's prep notes for the specific commits and pattern variations live separately from this participant repo; ask if you want to replicate the demo end-to-end at home.
 
 ## Pattern variations
 
-The same primitives (read context, call LLM, post somewhere) compose into other patterns. See `demo/release-notes-variant.md` for an example: tag push → summarize commits between tags → post release notes.
+The same primitives — read context, call LLM, post somewhere — compose into other patterns. Common variants worth thinking about: tag push → summarize commits between tags → post release notes. Weekly schedule → summarize the week's commits → post to a shared channel. Same three primitives, different trigger and output.
 
 ## Cost control
 
