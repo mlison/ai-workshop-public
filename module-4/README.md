@@ -14,7 +14,7 @@ module-4/
 └── README.md                      ← This file
 ```
 
-All three runnable variants follow identical conventions: same two working tools (`list_vehicles`, `get_vehicle_status`), same `assign_route` extension target left unimplemented, same planted issues in `get_vehicle_status` (vague description, silent failure on not-found).
+All three runnable variants are mechanically identical: same two reference tools (`list_vehicles`, `get_vehicle_status`), same `assign_route` extension target left unimplemented for the Module 4 mob exercise.
 
 `skill-template/` is a markdown contract — the same in every language.
 
