@@ -18,5 +18,9 @@ mcp = FastMCP("dispatchkit-core")
 mcp.tool()(list_routes)
 
 
-if __name__ == "__main__":
+def main() -> None:
     mcp.run()
+
+
+if __name__ == "__main__":
+    main()
