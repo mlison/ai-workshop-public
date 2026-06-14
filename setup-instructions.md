@@ -101,8 +101,7 @@ If you get a coherent answer, you're set.
 
 ## If something doesn't work
 
-- Email me at michal.lison@outlook.com with the error.
-- Or arrive 15 minutes early; we debug then.
+- Arrive 15 minutes early; we debug then.
 - Worst case: show up anyway, pair with someone whose setup works.
 
 ## What you don't need
