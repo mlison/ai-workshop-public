@@ -15,8 +15,8 @@ The workshop's full curriculum has six modules. We're intentionally skipping the
 Four modules.
 
 - **Module 3 -- Team-level context engineering.** Shared `AGENTS.md` / `CLAUDE.md` files, prompt libraries, governance. How to make AI behaviour consistent across the team, not just per-developer.
-- **Module 4 -- Advanced workflows.** Hands-on with MCP servers, custom skills, parallel agents, plans, worktrees. We mob-build an MCP tool together, then write a skill solo.
-- **Module 5 -- Discipline for trustworthy AI output.** When the plan and the implementation diverge: which wins? The "golden rule" of AI-assisted development. PR-review exercise.
+- **Module 4 -- Giving the agent your team's tools (MCP-led).** Hands-on. MCP is how you give the agent the tools your team already uses. We mob-build an MCP tool together (in TypeScript, C#, or Python — your cohort's facilitator picks the language), then write a skill solo.
+- **Module 5 -- Discipline for trustworthy AI output.** When the spec and the implementation diverge: which wins? The "golden rule" of AI-assisted development. PR-review exercise.
 - **Module 6 -- AI in CI/CD and pipelines.** AI agents in automated workflows. Azure DevOps patterns. Beyond personal productivity.
 
 You don't need to study any of this in advance. The vocabulary below is what you should walk in *roughly* familiar with so terms don't land cold.
@@ -61,11 +61,13 @@ Running multiple agent sessions at once, often each scoped to its own worktree o
 
 You don't need to know how to set this up in advance. We show it in Module 4.
 
-### Plans
+### Specs (a.k.a. plans)
 
-A written document describing what an agent should do before it starts. You (or the agent) draft the plan; you review and approve; the agent then executes against it. Reduces "AI confidently does the wrong thing" by half a session.
+A written document describing what an agent should do before it starts. You (or the agent) draft the spec; you review and approve; the agent then executes against it. Reduces "AI confidently does the wrong thing" by half a session.
 
-Plans run through the day and are the centerpiece of Module 5.
+We use "spec" throughout the workshop because the engineering culture this audience comes from associates "plan" with throwaway pre-work, and the artifact we're describing is the opposite — durable, versioned, the source of truth the code is measured against. SPDD (referenced below) calls the same artifact a "plan"; they're the same thing.
+
+Specs run through the day and are the centerpiece of Module 5.
 
 ## Setup before the workshop
 
@@ -75,8 +77,8 @@ See `setup-instructions.md` in this folder. Bring your laptop with one AI coding
 
 If you want to go further before the workshop -- not required:
 
-- The Martin Fowler article on Structured Prompt-Driven Development (https://martinfowler.com/articles/structured-prompt-driven/). Source of much of Module 5's vocabulary (golden rule, bidirectional sync).
+- The Martin Fowler article on Structured Prompt-Driven Development (https://martinfowler.com/articles/structured-prompt-driven/). Source of much of Module 5's vocabulary (golden rule, bidirectional sync). The article uses "plan" for what we call "spec" — same artifact.
 - Anthropic's docs on Claude Code skills and MCP, or GitHub's docs on Copilot agent mode.
-- The MCP TypeScript SDK README, if you want to peek at what we write in Module 4.
+- The MCP SDK README for whichever language you'd actually write in: the TypeScript SDK (`@modelcontextprotocol/sdk`), the .NET SDK (`ModelContextProtocol` NuGet), or the Python SDK (`mcp` PyPI, FastMCP API). The protocol is the same in all three; only the SDK idiom differs.
 
 Don't go down a rabbit hole. The above is plenty.

@@ -6,14 +6,27 @@ About 10 minutes if your machine is already a working dev environment.
 
 - Laptop with a working terminal (zsh, bash, fish — your choice).
 - Git installed.
-- Node.js 20 or later.
 - One AI coding tool installed and authenticated — **Claude Code** or **GitHub Copilot** (with agent mode). Pick whichever you already use day-to-day; both work for the workshop.
 - An active account / subscription for that tool, with enough usage budget for the day.
 
-About the tool choice: the workshop is mostly tool-agnostic — concepts and patterns transfer. Two caveats worth knowing:
+That's it for the pre-flight. The check below confirms your AI tool can read a file in this repo — that's all the day-of setup needs.
+
+### About the tool choice
+
+The workshop is mostly tool-agnostic — concepts and patterns transfer. Two caveats worth knowing:
 
 - The skill-writing exercise (Module 4) uses Claude Code's skill format specifically. If you're Copilot-only, plan to pair with a Claude user for that 15-minute block, or follow along as an observer.
 - The MCP server demo (Module 4) uses Claude Code's commands for adding/listing MCP servers. The MCP protocol is the same in both tools, but the commands you'd type differ.
+
+### About language runtimes
+
+Module 4's MCP sample ships in three languages — TypeScript, C#, Python. **Your facilitator will pick one for the mob** based on your cohort. You don't *need* the runtime installed to follow along on the day (the mob is driver-led; you watch the screen). But if you want to clone the sample and tinker after the workshop, install whichever matches your day-to-day work:
+
+- **TypeScript:** Node.js 20+
+- **C#:** .NET 10 SDK (`brew install --cask dotnet-sdk` on macOS)
+- **Python:** Python 3.10+ and ideally `uv` or `pip` for venv management
+
+None of these are required to attend.
 
 ## Path A — Claude Code
 
@@ -94,6 +107,6 @@ If you get a coherent answer, you're set.
 
 ## What you don't need
 
-- The MCP TypeScript SDK, Azure CLI, or any provider-specific SDK installed locally — those run on the demo machine.
+- The MCP SDK (TypeScript, C#, or Python — see *About language runtimes* above), Azure CLI, or any provider-specific SDK installed locally — those run on the demo machine on the day.
 - A personal Azure DevOps account — Module 6 is demo-only.
-- To read anything inside the workshop repo's `modules/` directory before the day. We walk through the relevant pieces together.
+- To read anything inside the workshop repo's per-module directories before the day. We walk through the relevant pieces together.

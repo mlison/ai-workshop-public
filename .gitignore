@@ -1,0 +1,19 @@
+.DS_Store
+*.log
+
+# Build artifacts
+node_modules/
+dist/
+bin/
+obj/
+
+# Python venvs + caches
+.venv/
+__pycache__/
+*.pyc
+
+# Local Claude Code state
+.claude/
+
+# Note: slides.pdf is intentionally committed in this repo (participants
+# read the PDFs; this mirror does not ship the slides.md sources).
